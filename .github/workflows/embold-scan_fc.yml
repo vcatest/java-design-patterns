@@ -40,7 +40,7 @@ jobs:
       # Step 5: Download the repository configuration file
       - name: Download Repository Configuration
         run: |
-          curl --silent --location --request GET "http://18.184.13.138:3089/api/v1/repositories/fe3a6dc00397abe4c2c7a55da1d59160/scans/config/download" --header "Authorization: Bearer ${{ secrets.EMBOLD_SCAN_TOKEN_FC }}" -o repository-configuration.json
+          curl --silent --location --request GET "http://18.184.13.138:3089/api/v1/repositories/90cc7544452bf2dbfcea72dd35c7f21f/scans/config/download" --header "Authorization: Bearer ${{ secrets.EMBOLD_SCAN_TOKEN_FC }}" -o repository-configuration.json
 
       # Step 6: Run the Embold analysis scanner
       - name: Run Embold Scanner
@@ -50,7 +50,7 @@ jobs:
           ./browserstack-codequality-scanner/bin/embold-scanner analyse \
             -u http://18.184.13.138:3089 \
             -t $EMBOLD_TOKEN \
-            -r fe3a6dc00397abe4c2c7a55da1d59160 \
+            -r 90cc7544452bf2dbfcea72dd35c7f21f \
             -b . \
             -d ./embold-data \
             -c ./repository-configuration.json \
